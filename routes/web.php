@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\ClassesContoller;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\StudentsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+Route::get('/students' , [StudentsController::class , 'index']);
+
+Route::get('/classes' , [ClassesContoller::class , 'index']);
+
 
 Route::get('/welcome', function () {
     return view('welcome');
