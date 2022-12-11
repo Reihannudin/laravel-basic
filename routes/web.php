@@ -19,6 +19,16 @@ Route::get('/welcome', function () {
 });
 
 
+// make route for role
+Route::get('/role/{role}' , function ( $role){
+    return view('role' , ['name' => 'Reihannudin','role' => 'manager']);
+});
+
+//make route for fruit
+Route::get('/fruit' , function (){
+    return view('fruit' , ['fruits' => ['apple' , 'orange' , 'banana' , 'strawberry' , 'grape']]);
+} );
+
 // make basic route
 Route::get('/contact' , function(){
     return 'Contact : 087773301182';
@@ -29,9 +39,18 @@ Route::get('/sum' ,function(){
 });
 
 // make view route
+//Route::get('/' , function(){
+//    return view('home');
+//});
+
 Route::get('/' , function(){
-    return view('home');
+    return view('layout.main-layout');
 });
+
+Route::get('/album' , function(){
+    return view('album');
+});
+
 
 // make view argument route
 Route::get('/about' , function(){
