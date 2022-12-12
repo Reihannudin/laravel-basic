@@ -11,16 +11,24 @@
     <thead>
     <tr>
         <th>Classname</th>
-{{--        <th>Teacher</th>--}}
-{{--        <th>Student</th>--}}
+        <th>Student</th>
+         <th>Teacher</th>
     </tr>
     </thead>
     <tbody>
     @foreach($classes as $class)
         <tr>
             <td>{{ $class->name }}</td>
-{{--            <td>{{ $student->nis }}</td>--}}
-{{--            <td>{{ $student->gender }}</td>--}}
+            <td>
+                @foreach($class->students as $student)
+                    - {{$student->name}} <br/>
+                @endforeach
+            </td>
+            <td>
+                @foreach($class->teacher as $teach)
+                    {{$teach->name}} <br/>
+                @endforeach
+            </td>
         </tr>
     @endforeach
     </tbody>

@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\ClassesContoller;
+use App\Http\Controllers\ExtracurricularController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StudentsController;
+use App\Http\Controllers\TeacherController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,11 +18,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/' , function(){
+    return view('students.home');
+});
 
 Route::get('/students' , [StudentsController::class , 'index']);
 
 Route::get('/classes' , [ClassesContoller::class , 'index']);
 
+Route::get('/teacher' , [TeacherController::class , 'index']);
+
+Route::get('/extracurricular' , [ExtracurricularController::class , 'index']);
 
 Route::get('/welcome', function () {
     return view('welcome');
@@ -50,10 +58,10 @@ Route::get('/sum' ,function(){
 //Route::get('/' , function(){
 //    return view('home');
 //});
-
-Route::get('/' , function(){
-    return view('layout.main-layout');
-});
+//
+//Route::get('/' , function(){
+//    return view('layout.main-layout');
+//});
 
 Route::get('/album' , function(){
     return view('album');

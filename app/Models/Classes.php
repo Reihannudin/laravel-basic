@@ -11,4 +11,13 @@ class Classes extends Model
 
     protected $table = 'classes';
 
+    public function students(){
+        return $this->hasMany(Students::class , 'class_id' , 'id');
+    }
+
+    public function teacher(){
+        return $this->hasMany(Teacher::class , 'class_id' , 'id');
+    }
+
+
 }

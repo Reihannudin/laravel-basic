@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class ClassesContoller extends Controller
 {
     public function index(){
-        $dataClass = Classes::all();
+        $dataClass = Classes::with('teacher')->get();
         return view('students.classes' , ['classes' => $dataClass]);
     }
 }
